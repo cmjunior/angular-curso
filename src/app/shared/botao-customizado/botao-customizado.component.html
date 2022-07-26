@@ -1,0 +1,10 @@
+<button
+    mat-stroked-button color="warn"
+    #btn 
+    type="button"
+    style="width: 200px"
+    [ngStyle]="{'padding': formatar ? '20px' : '12px'}"
+    [ngClass]="{'btn' : formatar}"
+    (click)="onClick()">
+    {{ texto }}
+</button>

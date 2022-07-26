@@ -1,0 +1,11 @@
+.btn {
+    font-size: 12pt;
+    font-weight: bold;
+    border: 1px solid #d5d5d5;
+
+    &:hover {
+        border: 2px solid red;
+        transition: all 0.6s;
+    }
+
+}

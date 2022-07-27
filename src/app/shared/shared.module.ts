@@ -9,8 +9,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 import { FormatarPipe } from './formatar.pipe';
 import { CpfCnpjDirective } from './cpf-cnpj.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,7 @@ import { CpfCnpjDirective } from './cpf-cnpj.directive';
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatInputModule,
@@ -28,9 +33,12 @@ import { CpfCnpjDirective } from './cpf-cnpj.directive';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatInputModule,
@@ -38,6 +46,8 @@ import { CpfCnpjDirective } from './cpf-cnpj.directive';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
     BotaoCustomizadoComponent,
     FormatarPipe,
     CpfCnpjDirective

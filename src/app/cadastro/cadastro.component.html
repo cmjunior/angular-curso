@@ -40,6 +40,10 @@
                     <mat-form-field fxFlex="33" appearance="fill">
                         <mat-label>Informe o CEP</mat-label>
                         <input formControlName="zip" matInput type="text" />
+                        <mat-spinner 
+                            *ngIf="buscandoCEP$ | async"
+                            matSuffix [diameter]="20">
+                        </mat-spinner>
                     </mat-form-field>
         
                     <mat-form-field fxFlex="33" appearance="fill">
@@ -53,6 +57,10 @@
                     </mat-form-field>
                 </div>
         
+                <mat-form-field appearance="fill">
+                    <mat-label>Endereço</mat-label>
+                    <input formControlName="address" matInput type="text" />            
+                </mat-form-field>
             </div>
         </form>
     </div>

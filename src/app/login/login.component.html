@@ -5,21 +5,28 @@
     </mat-card-header>
 
     <mat-card-content>
-        <div fxLayout="column">
-            <mat-form-field appearance="fill">
-                <mat-label>Informe o Email</mat-label>
-                <input matInput type="text" />
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Informe a Senha</mat-label>
-                <input matInput type="text" />
-            </mat-form-field>
-        </div>
+        <form [formGroup]="formLogin">
+            <div fxLayout="column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Informe o Email</mat-label>
+                    <input formControlName="email" matInput type="text" />
+                    <mat-hint *ngIf="hasError('email', 'required')">Forneça um Email</mat-hint>
+                    <mat-hint *ngIf="hasError('email', 'email')">Forneça um Email válido</mat-hint>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Informe a Senha</mat-label>
+                    <input formControlName="password" matInput type="password" />
+                    <mat-hint *ngIf="hasError('password', 'required')">Forneça uma Senha</mat-hint>
+                    <mat-hint *ngIf="hasError('password', 'minlength')">Senha deve ter no minimo 6 digitos</mat-hint>
+                </mat-form-field>
+            </div>
+        </form>
     </mat-card-content>
 
     <mat-card-actions align="end">
-      <button mat-button>Cadastrar</button>
-      <button mat-raised-button color="primary">Acessar</button>
+      <button mat-button (click)="onShowPassword()">Cadastrar</button>
+      <button [disabled]="formLogin.invalid" 
+        mat-raised-button color="primary">Acessar</button>
     </mat-card-actions>
 </mat-card>

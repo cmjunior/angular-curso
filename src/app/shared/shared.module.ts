@@ -9,10 +9,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { FormatarPipe } from './formatar.pipe';
+import { CpfCnpjDirective } from './cpf-cnpj.directive';
 
 @NgModule({
   declarations: [
-    BotaoCustomizadoComponent
+    BotaoCustomizadoComponent,
+    FormatarPipe,
+    CpfCnpjDirective
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    BotaoCustomizadoComponent
+    BotaoCustomizadoComponent,
+    FormatarPipe,
+    CpfCnpjDirective
   ]
 })
 export class SharedModule { }

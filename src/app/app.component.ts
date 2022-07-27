@@ -8,7 +8,8 @@ import { Component, ViewChild } from '@angular/core';
 export class AppComponent {
   @ViewChild('btn') botao: any;
 
-  title = 'angular-curso';
+  title = 'Curso de Angular';
+  data = new Date()
 
   alterarTitulo(botao: any) {
     this.title = botao;

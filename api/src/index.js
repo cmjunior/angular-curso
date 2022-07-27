@@ -8,13 +8,22 @@ const PORT = 3000;
 const app = express();
 const DB = 'mongodb+srv://cmjunior:hw4kFG0V1XHz9F2g@cluster0.hatgn.mongodb.net/?retryWrites=true&w=majority';
 
+// Promise
 mongoose
     .connect(DB)
     .then(() => {
         console.log('Database connected');
-    }).catch((e) => {
+    })
+    .catch((e) => {
         console.error(e);
     });
+
+console.log("Iniciando aplicação...");
+
+app.post('/', (req, res) => {
+    const nome = req.body.nome;
+    res.json({message: `Ola, ${req.body}`}, 200);
+});
 
 app.use(express.json());
 app.use(authRouter);

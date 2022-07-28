@@ -11,16 +11,21 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { FormatarPipe } from './formatar.pipe';
 import { CpfCnpjDirective } from './cpf-cnpj.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogComponent } from './dialog/dialog.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
     BotaoCustomizadoComponent,
     FormatarPipe,
-    CpfCnpjDirective
+    CpfCnpjDirective,
+    DialogComponent,
+    SafeHtmlPipe
   ],
   imports: [
     CommonModule,
@@ -35,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   exports: [
     FormsModule,
@@ -48,9 +54,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
     BotaoCustomizadoComponent,
     FormatarPipe,
-    CpfCnpjDirective
+    CpfCnpjDirective,
+    DialogComponent,
+    SafeHtmlPipe
   ]
 })
 export class SharedModule { }

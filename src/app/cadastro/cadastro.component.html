@@ -36,8 +36,8 @@
                     </mat-form-field>
                 </div>
                 
-                <div fxLayout="row" fxLayoutGap="12">
-                    <mat-form-field fxFlex="33" appearance="fill">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <mat-form-field fxFlex="32" appearance="fill">
                         <mat-label>Informe o CEP</mat-label>
                         <input formControlName="zip" matInput type="text" />
                         <mat-spinner 
@@ -46,12 +46,12 @@
                         </mat-spinner>
                     </mat-form-field>
         
-                    <mat-form-field fxFlex="33" appearance="fill">
+                    <mat-form-field fxFlex="32" appearance="fill">
                         <mat-label>Numero</mat-label>
                         <input formControlName="number" matInput type="text" />
                     </mat-form-field>
         
-                    <mat-form-field fxFlex="33" appearance="fill">
+                    <mat-form-field fxFlex="32" appearance="fill">
                         <mat-label>Complemento</mat-label>
                         <input formControlName="complement" matInput type="text" />
                     </mat-form-field>
@@ -63,6 +63,12 @@
                 </mat-form-field>
             </div>
         </form>
+
+        <button mat-raised-button color="primary"
+            [disabled]="formCadastro.invalid"
+            (click)="onSalvarCliente()">Enviar Cadastro
+        </button>
+
     </div>
 
 </div>

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content>
+    <div *ngIf="dialogHtml" [innerHtml]="dialogHtml | safeHtml"></div>
+    <div *ngIf="dialogText">
+        {{ dialogText }}
+    </div>
+</div>
+<div mat-dialog-actions>
+  <button *ngIf="noText" mat-button mat-dialog-close>{{noText }}</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>{{ yesText }}</button>
+</div>

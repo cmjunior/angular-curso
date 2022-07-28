@@ -12,6 +12,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';  
 
 import { FormatarPipe } from './formatar.pipe';
 import { CpfCnpjDirective } from './cpf-cnpj.directive';
@@ -41,6 +43,8 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatToolbarModule,
+    MatMenuModule,
   ],
   exports: [
     FormsModule,
@@ -55,6 +59,8 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatToolbarModule,
+    MatMenuModule,
     BotaoCustomizadoComponent,
     FormatarPipe,
     CpfCnpjDirective,

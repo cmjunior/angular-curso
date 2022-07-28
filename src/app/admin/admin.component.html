@@ -1,0 +1,28 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Area Administrativa</span>
+    
+    <span class="example-spacer"></span>
+    
+    <button *ngIf="userLogged$ | async as userLogged" 
+        mat-raised-button
+        [matMenuTriggerFor]="menu"
+    >
+      <mat-icon>person</mat-icon>
+      {{ userLogged.name }}
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="doLogout()">
+            <mat-icon>logout</mat-icon>
+            Desconectar
+        </button>        
+    </mat-menu>      
+
+</mat-toolbar>
+  
+<div *ngIf="userLogged$ | async as userLogged">
+    <p>Olá, {{ userLogged.name }}</p>
+</div>

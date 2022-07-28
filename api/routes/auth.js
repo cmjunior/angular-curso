@@ -2,6 +2,7 @@ const express = require('express');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
+const Client = require('../models/client');
 
 const authRouter = express.Router();
 
@@ -33,23 +34,23 @@ authRouter.post('/api/signin', async (req,res) => {
     try {    
         const { email, password } = req.body;        
     
-        const user = await User.findOne({email: email});
-        if ( ! user ) {
-            return res.status(400).json({msg: "User with this email does not exists!"});
+        const client = await Client.findOne({email: email});
+        if ( ! client ) {
+            return res.status(400).json({erro: true, msg: "User with this email does not exists!"});
         }
     
-        console.log(user.password);
-        const isMatch = await bcryptjs.compare(password, user.password);
+        console.log(client.password);
+        const isMatch = await bcryptjs.compare(password, client.password);
         if ( !isMatch ) {
-            return res.status(400).json({msg: "Password mismatch!"});
+            return res.status(400).json({erro: true, msg: "Password mismatch!"});
         }
 
-        const userData = {...user._doc};
+        const userData = {...client._doc};
         delete userData.password;
-        const token = jwt.sign({id: user._id}, "passwordKey");
+        const token = jwt.sign({id: client._id}, "passwordKey");
         return res.json({token, ...userData});
     } catch (error) {
-        return res.status(500).json({error: error.message});
+        return res.status(500).json({erro: true, error: error.message});
     }
 });
 

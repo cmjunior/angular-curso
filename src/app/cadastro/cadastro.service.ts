@@ -15,5 +15,4 @@ export class CadastroService {
     saveClient(client: any) {
         return this.httpClient.post(this.url, client);
     }
-
 }

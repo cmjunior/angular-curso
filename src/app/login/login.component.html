@@ -33,7 +33,7 @@
         <mat-card-actions align="end">
           <button mat-button routerLink="cadastro">Cadastrar</button>
           <button [disabled]="formLogin.invalid" 
-            mat-raised-button color="primary">Acessar</button>
+            mat-raised-button color="primary" (click)="doLogin()">Acessar</button>
         </mat-card-actions>
     </mat-card>    
   </div>

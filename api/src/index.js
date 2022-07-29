@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const authRouter = require('../routes/auth');
 const clientRouter = require('../routes/client');
+const homeRouter = require('../routes/home');
 
 const PORT = 3000;
 const app = express();
@@ -28,6 +29,7 @@ app.post('/', (req, res) => {
 app.use(express.json());
 app.use(authRouter);
 app.use(clientRouter);
+app.use(homeRouter);
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`listening on port ${PORT}`);

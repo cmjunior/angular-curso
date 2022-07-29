@@ -1,1 +1,28 @@
-<p>home works!</p>
+<mat-toolbar style="height: 96px">     
+    <div>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Angular</span>
+    </div> 
+    
+    <div fxLayout="column" fxLayoutAlign="enter" style="margin-left: 32px;margin-top: 8px; width: 30vw">
+        <mat-form-field appearance="legacy" style="width: 100%">
+            <input matInput placeholder="Pesquisar">
+            <mat-icon matSuffix style="color: red">search</mat-icon>
+        </mat-form-field>
+    </div>
+</mat-toolbar>
+
+<div fxLayout="column" fxLayoutGap="64">
+    <app-slider [template]="categoriesTemplate"></app-slider>
+    <app-slider [layoutGap]="24" [template]="highlightsTemplate"></app-slider>
+</div>
+
+<ng-template #categoriesTemplate>
+    <img class="img-categories" *ngFor="let category of homeData.categories" [src]="category.img" [alt]="category.title"> 
+</ng-template>
+
+<ng-template #highlightsTemplate>
+    <img class="img-highlight" *ngFor="let highlight of homeData.highlights" [src]="highlight.img" [alt]="highlight.title"> 
+</ng-template>

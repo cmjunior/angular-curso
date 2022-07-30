@@ -20,14 +20,15 @@ import { CpfCnpjDirective } from './cpf-cnpj.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
-
+import { CurrencyPipe } from './currency.pipe';
 @NgModule({
   declarations: [
     BotaoCustomizadoComponent,
     FormatarPipe,
     CpfCnpjDirective,
     DialogComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    CurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -65,7 +66,8 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     FormatarPipe,
     CpfCnpjDirective,
     DialogComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    CurrencyPipe
   ]
 })
 export class SharedModule { }

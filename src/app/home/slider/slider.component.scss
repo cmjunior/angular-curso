@@ -1,7 +1,43 @@
 .slider-container {
     margin: 0 64px;
-    max-width: calc(100vw - 128px);
+    width: calc(100vw - 128px);
     display: inline-block;
     white-space: nowrap;
-    overflow: auto;    
+    overflow: auto;  
+    position: relative;
+    scroll-behavior: smooth;  
+}
+
+.start {
+    left: 24px;
+}
+
+.end {
+    right: 24px;
+}
+
+.circle-button {
+    position: absolute;
+    top: 0;
+	bottom: 0;
+    z-index: 99;
+
+    height: 64px;
+    line-height: 64px;  
+    width: 64px;
+    font-size: 2em;
+    font-weight: bold;
+    border: 4px solid rgba($color: #454545, $alpha: 0.3);
+    border-radius: 50%;
+    background-color: rgba($color: #fff, $alpha: 0.3);
+    color: rgba($color: #454545, $alpha: 0.3);
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba($color: #fff, $alpha: 1);
+        border: 4px solid rgba($color: #454545, $alpha: 1);
+        color: rgba($color: #454545, $alpha: 1);
+        transition: all 0.5;
+    }
 }

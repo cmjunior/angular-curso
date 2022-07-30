@@ -1,3 +1,19 @@
-<div class="slider-container">
-    <ng-template [ngTemplateOutlet]="template"></ng-template>
-</div> 
+<div #container style="width: 100vw; position: relative;">
+    <div *ngIf="scrollLeft > 0"
+        (click)="doScrollBack()" 
+        [style.top.px]="buttonTopPosition" 
+        class="circle-button start">
+        <mat-icon>arrow_back</mat-icon>
+    </div>
+    
+    <div *ngIf="scrollLeft !== scrollLeftMax" 
+        (click)="doScrollForward()"
+        [style.top.px]="buttonTopPosition" 
+        class="circle-button end">
+        <mat-icon>arrow_forward</mat-icon>
+    </div>
+    
+    <div #slider class="slider-container">
+        <ng-template [ngTemplateOutlet]="template"></ng-template>
+    </div>     
+</div>

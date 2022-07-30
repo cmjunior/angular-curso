@@ -1,1 +1,19 @@
-<p>card works!</p>
+<mat-card class="mat-elevation-z4">    
+    <mat-card-content *ngIf="backgroundImage; else cardWithImage">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12">
+            <div mat-card-avatar style="background-image: url('{{ backgroundImage }}');background-size: cover;"></div>
+            <mat-card-title>{{ cardTitle }}</mat-card-title>
+        </div>
+    </mat-card-content>
+
+    <ng-template #cardWithImage>
+        <img mat-card-image [src]="cardImage">        
+        <mat-card-content style="margin-bottom: 32px">
+            <mat-card-title>{{ cardTitle }}</mat-card-title>            
+            {{ cardHtml }}
+        </mat-card-content>
+        <mat-card-actions>
+            <span style="margin-left: 12px;">A partir de {{ cardFooter | currencyPipe }}</span>
+        </mat-card-actions>
+    </ng-template>
+</mat-card>

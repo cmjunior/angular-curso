@@ -1,4 +1,4 @@
-<mat-toolbar style="height: 96px">     
+<mat-toolbar style="height: 96px; opacity: 0;">     
     <div>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
             <mat-icon>menu</mat-icon>
@@ -14,15 +14,43 @@
     </div>
 </mat-toolbar>
 
-<div fxLayout="column" fxLayoutGap="64">
-    <app-slider [template]="categoriesTemplate"></app-slider>
-    <app-slider [layoutGap]="24" [template]="highlightsTemplate"></app-slider>
+<div *ngIf="homeData" fxLayout="column" fxLayoutGap="64">
+    <app-slider [@moveInRight]="{value: '', params: {atraso: 300}}" [template]="categoriesTemplate"></app-slider>
+    <app-slider [@moveInRight]="{value: '', params: {atraso: 700}}" [layoutGap]="24" [template]="highlightsTemplate"></app-slider>
+    <app-slider [@moveInRight]="{value: '', params: {atraso: 1100}}" [layoutGap]="24" [template]="mealsTemplate"></app-slider>
+    
+    <div fxLayout="column" fxLayoutGap="12">
+        <h2>Novos Restaurantes</h2>
+        <app-slider [layoutGap]="24" [template]="lastStoresTemplate"></app-slider>
+    </div>
+    
+    <div fxLayout="column" fxLayoutGap="12">
+        <h2>Restaurantes</h2>
+        <app-slider [layoutGap]="24" [template]="lastStoresTemplate"></app-slider>
+    </div>
 </div>
 
 <ng-template #categoriesTemplate>
-    <img class="img-categories" *ngFor="let category of homeData.categories" [src]="category.img" [alt]="category.title"> 
+    <ng-container *ngIf="homeData">
+        <img class="img-categories" *ngFor="let category of homeData.categories" [src]="category.img" [alt]="category.title"> 
+    </ng-container>
 </ng-template>
 
 <ng-template #highlightsTemplate>
-    <img class="img-highlight" *ngFor="let highlight of homeData.highlights" [src]="highlight.img" [alt]="highlight.title"> 
+    <ng-container *ngIf="homeData">
+        <img class="img-highlight" *ngFor="let highlight of homeData.highlights" [src]="highlight.img" [alt]="highlight.title"> 
+    </ng-container>
 </ng-template>
+
+<ng-template #lastStoresTemplate>
+    <ng-container *ngIf="homeData">
+        <app-card class="img-highlight" *ngFor="let feat of homeData.featured" [cardTitle]="feat.name" [backgroundImage]="feat.img"></app-card>
+    </ng-container>
+</ng-template>
+
+<ng-template #mealsTemplate>
+    <ng-container *ngIf="homeData">
+        <app-card class="img-categories" *ngFor="let meal of homeData.meals" [cardImage]="meal.img" [cardTitle]="meal.name" [cardHtml]="meal.info" [cardFooter]="meal.price"></app-card>
+    </ng-container>
+</ng-template>
+
